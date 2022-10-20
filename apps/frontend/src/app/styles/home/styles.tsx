@@ -165,7 +165,7 @@ const AlignIcons = styled.div`
 
 const CourseContainer = styled.div`
   margin-top: 50px;
-  margin-bottom: 210px;
+  margin-bottom: 32vh;
   @media (max-width: 600px) {
     margin-top: 45px;
     margin-left: 40px;
