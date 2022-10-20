@@ -72,7 +72,13 @@ const AppButton = styled.button<Props>`
   margin-left: ${(props) => (props.isAdd ? '75px' : '0px')};
   margin-right: ${(props) => (props.isAdd ? '0px' : '10px')};
   margin-top: ${(props) => (props.isAdd ? '0px' : '15px')};
+  margin-bottom: ${(props) => !props.isAdd && '10px'};
   cursor: pointer;
+
+  &:disabled {
+    background-color: #9da9a6;
+    cursor: default;
+  }
 `;
 
 const Text = styled.text<Props>`

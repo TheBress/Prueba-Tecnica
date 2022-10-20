@@ -170,30 +170,33 @@ export const Home = () => {
                 </TrStudentsTable>
               ))}
 
-            {actualPage > 1 && (
-              <AppButton
-                isAdd={false}
-                onClick={() => {
-                  setActualPage(actualPage - 1);
-                }}
-              >
-                <AlignIcons>
-                  Previous <AiOutlineDoubleLeft />
-                </AlignIcons>
-              </AppButton>
-            )}
-            {actualPage < data.length / usersPerPage && (
-              <AppButton
-                isAdd={false}
-                onClick={() => {
-                  setActualPage(actualPage + 1);
-                }}
-              >
-                <AlignIcons>
-                  Next <AiOutlineDoubleRight />
-                </AlignIcons>
-              </AppButton>
-            )}
+            <AppButton
+              isAdd={false}
+              disabled={actualPage === 1}
+              onClick={() => {
+                setActualPage(actualPage - 1);
+              }}
+            >
+              <AlignIcons>
+                Previous <AiOutlineDoubleLeft />
+              </AlignIcons>
+            </AppButton>
+
+            <AppButton
+              isAdd={false}
+              disabled={actualPage === Math.round(data.length / usersPerPage)}
+              onClick={() => {
+                setActualPage(actualPage + 1);
+              }}
+            >
+              <AlignIcons>
+                Next <AiOutlineDoubleRight />
+              </AlignIcons>
+            </AppButton>
+
+            <span>
+              Página {actualPage} de {Math.round(data.length / usersPerPage)}
+            </span>
           </StudentsTable>
         </GridContainer>
       </HomeContainer>
