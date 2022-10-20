@@ -39,7 +39,7 @@ const Buttoninput = styled.button`
   width: auto;
   margin: 0 auto;
   color: white;
-  padding: 6px 10px;
+  padding: 5px 15px;
   cursor: pointer;
   border: none;
   font-size: 17px;
