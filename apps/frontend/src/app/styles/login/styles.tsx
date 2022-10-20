@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
-const LoginContainer = styled.div`
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-`;
+interface Props {
+  isError?: boolean;
+}
 
 const FormContainer = styled.form`
   display: flex;
@@ -18,10 +16,6 @@ const FormContainer = styled.form`
   }
 `;
 
-const AsteriskSpan = styled.span`
-  color: #fb5a5a;
-`;
-
 const LoginInput = styled.input`
   margin-bottom: 15px;
   border-radius: 8px;
@@ -29,8 +23,6 @@ const LoginInput = styled.input`
   padding: 10px;
   width: 100%;
 `;
-
-const LoginSvg = styled.svg``;
 
 const LabelInput = styled.label`
   font-family: 'Montserrat';
@@ -81,7 +73,7 @@ const CheckboxLogin = styled.input`
   place-content: center;
 
   &:checked {
-    background: red;
+    background: #0abb87;
   }
 `;
 
@@ -91,13 +83,9 @@ const LinkLogin = styled.a`
   float: right;
 `;
 
-const RememberSpan = styled.span`
-  margin-bottom: 200px;
-`;
-
-const ErrorMessage = styled.span`
-  color: red;
-  margin: 8px 0px;
+const Span = styled.span<Props>`
+  color: ${(props) => (props.isError ? 'red' : '#fb5a5a')};
+  margin: ${(props) => (props.isError ? '8px 0px' : '0')};
 `;
 
 const PasswordWrapper = styled.div`
@@ -110,23 +98,19 @@ const PasswordWrapper = styled.div`
 
 const EyeContainer = styled.div`
   position: absolute;
-  top: 22%;
+  top: 21%;
   left: 96%;
 `;
 
 export {
-  LoginContainer,
   FormContainer,
-  AsteriskSpan,
   LoginInput,
   LabelInput,
-  LoginSvg,
   Buttoninput,
   GridLoginContainer,
   CheckboxLogin,
   LinkLogin,
-  RememberSpan,
-  ErrorMessage,
+  Span,
   PasswordWrapper,
   EyeContainer,
   CheckboxContainer,

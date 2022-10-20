@@ -1,16 +1,14 @@
 import { Logo } from '../components/logo';
 import { data } from 'apps/frontend/src/DB';
 import {
-  AsteriskSpan,
   Buttoninput,
   CheckboxLogin,
   FormContainer,
   GridLoginContainer,
   LabelInput,
   LinkLogin,
-  LoginContainer,
   LoginInput,
-  ErrorMessage,
+  Span,
   PasswordWrapper,
   EyeContainer,
   CheckboxContainer,
@@ -51,53 +49,51 @@ export const Login = () => {
   };
 
   return (
-    <LoginContainer>
-      <FormContainer onSubmit={handleSubmit}>
-        <Logo isWhite={false} />
-        <LabelInput>
-          <AsteriskSpan>*</AsteriskSpan> Nombre de usuario:
-        </LabelInput>
+    <FormContainer onSubmit={handleSubmit}>
+      <Logo isWhite={false} />
+      <LabelInput>
+        <Span>*</Span> Nombre de usuario:
+      </LabelInput>
+      <LoginInput
+        type="text"
+        name="username"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      ></LoginInput>
+      <LabelInput>
+        <Span>*</Span> Contraseña:
+      </LabelInput>
+      <PasswordWrapper>
         <LoginInput
-          type="text"
-          name="username"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          type={!passwordVisible ? 'password' : 'text'}
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         ></LoginInput>
-        <LabelInput>
-          <AsteriskSpan>*</AsteriskSpan> Contraseña:
-        </LabelInput>
-        <PasswordWrapper>
-          <LoginInput
-            type={!passwordVisible ? 'password' : 'text'}
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          ></LoginInput>
 
-          <EyeContainer onClick={changePasswordVisibility}>
-            {!passwordVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
-          </EyeContainer>
-        </PasswordWrapper>
-        <GridLoginContainer>
-          <CheckboxContainer>
-            <CheckboxLogin type="checkbox" name=""></CheckboxLogin>
-            Remember me
-          </CheckboxContainer>
+        <EyeContainer onClick={changePasswordVisibility}>
+          {!passwordVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+        </EyeContainer>
+      </PasswordWrapper>
+      <GridLoginContainer>
+        <CheckboxContainer>
+          <CheckboxLogin type="checkbox" name=""></CheckboxLogin>
+          Remember me
+        </CheckboxContainer>
 
-          <div>
-            <LinkLogin href="#">Olvidé mi contraseña</LinkLogin>
-          </div>
-        </GridLoginContainer>
+        <div>
+          <LinkLogin href="#">Olvidé mi contraseña</LinkLogin>
+        </div>
+      </GridLoginContainer>
 
-        {error && (
-          <ErrorMessage>
-            El nombre de usuario o la contraseña no son correctas
-          </ErrorMessage>
-        )}
-        <Buttoninput type="submit" disabled={loading}>
-          Iniciar sesión
-        </Buttoninput>
-      </FormContainer>
-    </LoginContainer>
+      {error && (
+        <Span isError={true}>
+          El nombre de usuario o la contraseña no son correctas
+        </Span>
+      )}
+      <Buttoninput type="submit" disabled={loading}>
+        Iniciar sesión
+      </Buttoninput>
+    </FormContainer>
   );
 };
