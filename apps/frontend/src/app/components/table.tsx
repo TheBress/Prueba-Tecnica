@@ -107,7 +107,7 @@ export const Table = ({
             }}
           >
             <AlignIcons>
-              Previous <AiOutlineDoubleLeft />
+              <AiOutlineDoubleLeft /> Previous
             </AlignIcons>
           </AppButton>
 
