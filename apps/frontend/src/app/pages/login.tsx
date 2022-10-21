@@ -1,5 +1,4 @@
 import { Logo } from '../components/logo';
-import { data } from 'apps/frontend/src/DB';
 import {
   Buttoninput,
   CheckboxLogin,
@@ -16,6 +15,7 @@ import {
 import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { changePasswordVisibility, getData } from '../functions';
 
 export const Login = () => {
   const [name, setName] = useState<string>('');
@@ -23,8 +23,8 @@ export const Login = () => {
   const [error, setError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
+  const { data } = getData();
   const navigate = useNavigate();
-
   const handleSubmit = useCallback(
     (e: React.SyntheticEvent) => {
       setLoading(true);
@@ -42,11 +42,6 @@ export const Login = () => {
     },
     [name, password, setError, setLoading]
   );
-
-  const changePasswordVisibility = () => {
-    if (passwordVisible) setPasswordVisible(false);
-    else setPasswordVisible(true);
-  };
 
   return (
     <FormContainer onSubmit={handleSubmit}>
@@ -71,7 +66,11 @@ export const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         ></LoginInput>
 
-        <EyeContainer onClick={changePasswordVisibility}>
+        <EyeContainer
+          onClick={() => {
+            changePasswordVisibility(passwordVisible, setPasswordVisible);
+          }}
+        >
           {!passwordVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
         </EyeContainer>
       </PasswordWrapper>
