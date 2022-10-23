@@ -20,10 +20,11 @@ import { useRef, useState } from 'react';
 
 interface Props {
   setfilterUsers: (value: User[]) => void;
+  setActualPage: (value: number) => void;
   data: User[];
 }
 
-export const Menu = ({ setfilterUsers, data }: Props) => {
+export const Menu = ({ setfilterUsers, data, setActualPage }: Props) => {
   const navigate = useNavigate();
   const value = useRef('');
 
@@ -34,6 +35,7 @@ export const Menu = ({ setfilterUsers, data }: Props) => {
         user.name.toLowerCase().includes(value.current.toLowerCase()) ||
         user.lastName.toLowerCase().includes(value.current.toLowerCase())
     );
+    setActualPage(1);
     setfilterUsers(filterUsers);
   };
 

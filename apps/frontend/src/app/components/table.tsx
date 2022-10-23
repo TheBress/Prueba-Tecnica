@@ -9,6 +9,7 @@ import {
   THeader,
   THItem,
   TDItem,
+  ButtonsContainer,
 } from '../styles/home/styles';
 import {
   AiOutlineInfoCircle,
@@ -99,30 +100,31 @@ export const Table = ({
               </TrStudentsTable>
             ))}
 
-          <AppButton
-            isAdd={false}
-            disabled={actualPage === 1}
-            onClick={() => {
-              setActualPage(actualPage - 1);
-            }}
-          >
-            <AlignIcons>
-              <AiOutlineDoubleLeft /> Previous
-            </AlignIcons>
-          </AppButton>
+          <ButtonsContainer>
+            <AppButton
+              isAdd={false}
+              disabled={actualPage === 1}
+              onClick={() => {
+                setActualPage(actualPage - 1);
+              }}
+            >
+              <AlignIcons>
+                <AiOutlineDoubleLeft /> Previous
+              </AlignIcons>
+            </AppButton>
 
-          <AppButton
-            isAdd={false}
-            disabled={actualPage === totalPages}
-            onClick={() => {
-              setActualPage(actualPage + 1);
-            }}
-          >
-            <AlignIcons>
-              Next <AiOutlineDoubleRight />
-            </AlignIcons>
-          </AppButton>
-
+            <AppButton
+              isAdd={false}
+              disabled={actualPage === totalPages}
+              onClick={() => {
+                setActualPage(actualPage + 1);
+              }}
+            >
+              <AlignIcons>
+                Next <AiOutlineDoubleRight />
+              </AlignIcons>
+            </AppButton>
+          </ButtonsContainer>
           <span>
             Página {actualPage} de {totalPages}
           </span>

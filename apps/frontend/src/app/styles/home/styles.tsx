@@ -137,6 +137,12 @@ const StudentsTable = styled.div`
   }
 `;
 
+const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const THItem = styled.div`
   display: table-cell;
   border-bottom: 2px solid black;
@@ -226,4 +232,5 @@ export {
   ResponsiveFlex,
   THItem,
   TDItem,
+  ButtonsContainer,
 };

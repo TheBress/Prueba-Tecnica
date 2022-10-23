@@ -39,7 +39,11 @@ export const Home = () => {
 
   return (
     <>
-      <Menu setfilterUsers={setfilterUsers} data={data} />
+      <Menu
+        setfilterUsers={setfilterUsers}
+        setActualPage={setActualPage}
+        data={data}
+      />
 
       <HomeContainer>
         <FlexContainer>
