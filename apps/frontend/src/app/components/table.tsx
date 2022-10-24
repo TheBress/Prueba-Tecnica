@@ -10,6 +10,7 @@ import {
   THItem,
   TDItem,
   ButtonsContainer,
+  TextTable,
 } from '../styles/home/styles';
 import {
   AiOutlineInfoCircle,
@@ -130,9 +131,9 @@ export const Table = ({
           </span>
         </StudentsTable>
       ) : !data.length ? (
-        <h3>Loading...</h3>
+        <TextTable>Cargando...</TextTable>
       ) : (
-        <h3>No se han encontrado usuarios.</h3>
+        <TextTable>No se han encontrado usuarios.</TextTable>
       )}
     </>
   );

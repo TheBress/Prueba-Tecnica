@@ -143,6 +143,12 @@ const ButtonsContainer = styled.div`
   align-items: center;
 `;
 
+const TextTable = styled.h3`
+  @media (max-width: 600px) {
+    margin-top: 165px;
+  }
+`;
+
 const THItem = styled.div`
   display: table-cell;
   border-bottom: 2px solid black;
@@ -233,4 +239,5 @@ export {
   THItem,
   TDItem,
   ButtonsContainer,
+  TextTable,
 };

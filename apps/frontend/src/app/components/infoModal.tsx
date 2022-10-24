@@ -117,6 +117,8 @@ export const InfoModal = ({
           isEdited={isEditOpen}
           onClick={() => {
             setIsOpen(false);
+            setisEditOpen(false);
+            setisCourseOpen(false);
           }}
         >
           Cerrar
