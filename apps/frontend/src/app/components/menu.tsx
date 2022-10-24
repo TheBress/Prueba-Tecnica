@@ -22,11 +22,11 @@ interface Props {
   setfilterUsers: (value: User[]) => void;
   setActualPage: (value: number) => void;
   data: User[];
+  value: any;
 }
 
-export const Menu = ({ setfilterUsers, data, setActualPage }: Props) => {
+export const Menu = ({ setfilterUsers, data, setActualPage, value }: Props) => {
   const navigate = useNavigate();
-  const value = useRef('');
 
   const searchUsers = (inputValue: string) => {
     value.current = inputValue;

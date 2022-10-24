@@ -10,7 +10,7 @@ import {
 } from '../styles/home/styles';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { Menu } from '../components/menu';
 import { BsGraphUp } from 'react-icons/bs';
@@ -27,6 +27,7 @@ export const Home = () => {
   const [isEditOpen, setisEditOpen] = useState<boolean>(false);
   const [filterUsers, setfilterUsers] = useState<User[]>(data);
   const usersPerPage: number = 15;
+  const value = useRef<string>('');
 
   const totalPages: number =
     Math.round(filterUsers.length / usersPerPage) !== 0
@@ -43,6 +44,7 @@ export const Home = () => {
         setfilterUsers={setfilterUsers}
         setActualPage={setActualPage}
         data={data}
+        value={value}
       />
 
       <HomeContainer>
@@ -72,6 +74,7 @@ export const Home = () => {
             setuserId={setuserId}
             totalPages={totalPages}
             userId={userId}
+            value={value}
           />
         </GridContainer>
       </HomeContainer>

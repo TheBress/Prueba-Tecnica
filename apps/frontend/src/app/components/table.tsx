@@ -34,6 +34,7 @@ interface Props {
   userId: string;
   isEditOpen: boolean;
   totalPages: number;
+  value: any;
 }
 
 export const Table = ({
@@ -49,6 +50,7 @@ export const Table = ({
   setisEditOpen,
   setActualPage,
   totalPages,
+  value,
 }: Props) => {
   return (
     <>
@@ -132,8 +134,10 @@ export const Table = ({
         </StudentsTable>
       ) : !data.length ? (
         <TextTable>Cargando...</TextTable>
-      ) : (
+      ) : value.current !== '' && !filterUsers.length ? (
         <TextTable>No se han encontrado usuarios.</TextTable>
+      ) : (
+        ''
       )}
     </>
   );
